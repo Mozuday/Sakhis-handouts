@@ -6,19 +6,19 @@ import { motion } from "framer-motion";
 
 const images = [
   {
-    src: "/frame1.jpg",
+    src: "/frame1.png",
     alt: "Personalized photo frame",
-    size: "h-96",
+    size: "h-140",
   },
   {
-    src: "/frame2.jpg",
+    src: "/frame2.jpeg",
     alt: "Couple gift frame",
-    size: "h-[500px]",
+    size: "h-[900px]",
   },
   {
-    src: "/frame3.jpg",
+    src: "/frame3.png",
     alt: "Custom handmade gift",
-    size: "h-96",
+    size: "h-200",
   },
 ];
 
