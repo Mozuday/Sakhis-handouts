@@ -137,12 +137,12 @@ export default function Hero() {
                 />
 
                 <span className="font-semibold">
-                  4.9/5
+                  4.5/5
                 </span>
               </div>
 
               <p className="mt-1 text-sm text-black/50">
-                Loved by 1200+ customers
+                Loved by 50+ customers
               </p>
             </div>
           </motion.div>
