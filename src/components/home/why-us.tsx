@@ -1,222 +1,108 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Upload, Palette, PackageCheck } from "lucide-react";
-
+import { PackageCheck, Upload, Palette } from "lucide-react";
 
 const steps = [
   {
     number: "01",
-    title: "Choose Your Gift",
-    description:
-      "Select your favorite frame or personalized gift from our collection.",
+    title: "Choose a Gift",
+    description: "Browse our handcrafted collection.",
     icon: PackageCheck,
   },
   {
     number: "02",
-    title: "Add Your Memories",
-    description:
-      "Upload photos and share your special message during checkout.",
+    title: "Upload Photos",
+    description: "Share your memories and message.",
     icon: Upload,
   },
   {
     number: "03",
-    title: "We Create Magic",
-    description:
-      "We customize your gift and deliver it ready to make someone smile.",
+    title: "Receive Your Gift",
+    description: "We'll craft and deliver it with care.",
     icon: Palette,
   },
 ];
 
-
 export default function WhyUs() {
-
-
-return (
-
-<section className="bg-[#ede4d8]/40 py-24">
-
-
-<div className="mx-auto max-w-7xl px-6">
-
-
-<div className="mb-14 text-center">
-
-
-<p className="
-mb-4
-text-sm
-uppercase
-tracking-[0.3em]
-text-[#b88a44]
-">
-
-Simple Process
-
-</p>
-
-
-<h2 className="
-text-4xl
-font-light
-md:text-5xl
-">
-
-From Memory To
-<span className="font-serif italic">
- Gift
-</span>
-
-</h2>
-
-
-<p className="
-mx-auto
-mt-5
-max-w-xl
-text-black/60
-">
-
-Create your personalized gift in just a few easy steps.
-
-</p>
-
-
-</div>
-
-
-
-
-
-<div className="
-grid
-gap-8
-md:grid-cols-3
-">
-
-
-{
-steps.map((step,index)=>{
-
-
-const Icon = step.icon;
-
-
-return (
-
-
-<motion.div
-
-key={step.title}
-
-initial={{
-opacity:0,
-y:30
-}}
-
-whileInView={{
-opacity:1,
-y:0
-}}
-
-transition={{
-delay:index*0.15
-}}
-
-viewport={{
-once:true
-}}
-
-className="
-rounded-[32px]
-bg-white
-p-8
-shadow-sm
-"
-
-
->
-
-
-<div className="
-mb-6
-flex
-items-center
-justify-between
-">
-
-
-<span className="
-text-5xl
-text-[#b88a44]
-font-light
-">
-
-{step.number}
-
-</span>
-
-
-
-<Icon
-className="
-h-9
-w-9
-text-[#b88a44]
-"
-/>
-
-
-</div>
-
-
-
-
-<h3 className="
-text-xl
-font-medium
-mb-3
-">
-
-{step.title}
-
-</h3>
-
-
-
-
-<p className="
-leading-7
-text-black/60
-">
-
-{step.description}
-
-</p>
-
-
-
-</motion.div>
-
-
-)
-
-
-})
-
-}
-
-
-
-</div>
-
-
-
-</div>
-
-
-</section>
-
-)
-
+  return (
+    <section className="py-28">
+      <div className="mx-auto max-w-7xl px-6">
+        {/* Heading */}
+        <div className="mb-20 text-center">
+          <p className="mb-4 text-sm uppercase tracking-[0.3em] text-[#b88a44]">
+            Simple Process
+          </p>
+
+          <h2 className="text-4xl font-light md:text-5xl">
+            From Memory To{" "}
+            <span className="font-serif italic">
+              Gift
+            </span>
+          </h2>
+
+          <p className="mx-auto mt-5 max-w-lg text-black/60">
+            Just three simple steps to create something truly personal.
+          </p>
+        </div>
+
+        <div className="relative">
+          {/* Desktop Connector */}
+          <div className="absolute left-0 right-0 top-12 hidden border-t border-dashed border-[#d9c6a5] md:block" />
+
+          <div className="grid gap-8 md:grid-cols-3">
+            {steps.map((step, index) => {
+              const Icon = step.icon;
+
+              return (
+                <motion.div
+                  key={step.title}
+                  initial={{
+                    opacity: 0,
+                    y: 40,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    y: 0,
+                  }}
+                  viewport={{
+                    once: true,
+                  }}
+                  transition={{
+                    duration: 0.8,
+                    delay: index * 0.25,
+                    ease: "easeOut",
+                  }}
+                  className="relative"
+                >
+                  <div className="rounded-[30px] border border-[#eee3d3] bg-white p-8 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-xl">
+                    {/* Step Circle */}
+                    <div className="relative z-10 mb-8 flex h-24 w-24 items-center justify-center rounded-full bg-[#FCFAF7]">
+                      <Icon
+                        className="h-10 w-10 text-[#b88a44]"
+                        strokeWidth={1.8}
+                      />
+                    </div>
+
+                    {/* Number */}
+                    <p className="mb-3 text-sm font-medium tracking-[0.25em] text-[#b88a44]">
+                      STEP {step.number}
+                    </p>
+
+                    <h3 className="text-2xl font-medium text-[#2A1A12]">
+                      {step.title}
+                    </h3>
+
+                    <p className="mt-4 leading-7 text-black/60">
+                      {step.description}
+                    </p>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }
