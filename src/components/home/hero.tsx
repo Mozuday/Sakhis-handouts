@@ -99,7 +99,7 @@ export default function Hero() {
             <div className="relative overflow-hidden rounded-[35px] bg-white p-4 shadow-2xl">
               <div className="relative h-[380px] w-[300px] overflow-hidden rounded-[28px] sm:h-[500px] sm:w-[400px]">
                 <Image
-                  src="/hero.jpeg"
+                  src="/hero.png"
                   alt="Gift"
                   fill
                   className="object-cover"
