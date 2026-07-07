@@ -7,7 +7,7 @@ import { supabase } from "@/lib/supabase";
 
 const categories = [
 "Photo Frames",
-"LED Frames",
+"Parents Gifts",
 "Couple Gifts",
 "Birthday Gifts",
 "Gift Hampers",
