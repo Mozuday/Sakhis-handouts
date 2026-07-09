@@ -53,7 +53,7 @@ export default function Hero() {
             {/* Mobile Stats */}
             <div className="mt-10 flex justify-between rounded-3xl bg-white p-6 shadow-lg lg:hidden">
               <div>
-                <p className="text-2xl font-bold">1200+</p>
+                <p className="text-2xl font-bold">100+</p>
                 <p className="text-sm text-black/50">
                   Orders
                 </p>
@@ -61,7 +61,7 @@ export default function Hero() {
 
               <div>
                 <p className="flex items-center gap-1 text-2xl font-bold">
-                  4.9
+                  4.5
                   <Star
                     className="fill-yellow-400 text-yellow-400"
                     size={18}
