@@ -11,6 +11,7 @@ const categories = [
 "Couple Gifts",
 "Birthday Gifts",
 "Gift Hampers",
+"Mini Album",
 "Custom Gifts",
 ];
 
