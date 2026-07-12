@@ -9,12 +9,12 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      
+      {/* Shop immediately */}
+      <Featured />
 
       {/* Show real products & customers */}
       <Gallery />
-
-      {/* Shop immediately */}
-      <Featured />
 
       {/* Explain customization */}
       <HowItWorks />
