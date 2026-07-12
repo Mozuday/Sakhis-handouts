@@ -18,4 +18,6 @@ description:string;
 
 active:boolean;
 
+starred:boolean;
+
 }
