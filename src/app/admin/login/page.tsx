@@ -1,146 +1,72 @@
 "use client";
 
-import {useState} from "react";
-import {useRouter} from "next/navigation";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
+export default function Login() {
+  const router = useRouter();
 
-export default function Login(){
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-const router = useRouter();
+  const [loading, setLoading] = useState(false);
 
-const [password,setPassword]=useState("");
-const [loading,setLoading]=useState(false);
+  async function login() {
+    setLoading(true);
 
+    const res = await fetch("/api/admin/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    });
 
+    const data = await res.json();
 
-async function login(){
+    if (data.success) {
+      router.replace("/admin");
+    } else {
+      alert("Invalid email or password");
+    }
 
-setLoading(true);
+    setLoading(false);
+  }
 
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-[#faf7f2]">
+      <div className="w-full max-w-md rounded-[32px] border bg-white p-8">
+        <h1 className="mb-6 text-3xl">
+          Admin Login
+        </h1>
 
-const res = await fetch(
-"/api/admin/login",
-{
-method:"POST",
-headers:{
-"Content-Type":"application/json"
-},
-body:JSON.stringify({
-password
-})
-}
-);
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="mb-4 w-full rounded-xl border p-4"
+        />
 
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className="w-full rounded-xl border p-4"
+        />
 
-const data = await res.json();
-
-
-if(data.success){
-
-router.replace("/admin");
-
-}
-
-else{
-
-alert("Wrong password");
-
-}
-
-
-setLoading(false);
-
-}
-
-
-
-return (
-
-<div className="
-min-h-screen
-flex
-items-center
-justify-center
-bg-[#faf7f2]
-">
-
-
-<div className="
-rounded-[32px]
-bg-white
-border
-p-8
-w-full
-max-w-md
-">
-
-
-<h1 className="
-text-3xl
-mb-6
-">
-
-Admin Login
-
-</h1>
-
-
-
-<input
-
-type="password"
-
-placeholder="Password"
-
-value={password}
-
-onChange={(e)=>setPassword(e.target.value)}
-
-className="
-w-full
-border
-rounded-xl
-p-4
-"
-
-/>
-
-
-
-<button
-
-onClick={login}
-
-disabled={loading}
-
-className="
-mt-5
-w-full
-rounded-full
-bg-black
-text-white
-py-4
-"
-
->
-
-{
-loading
-?
-"Checking..."
-:
-"Login"
-}
-
-
-</button>
-
-
-</div>
-
-
-</div>
-
-)
-
+        <button
+          onClick={login}
+          disabled={loading}
+          className="mt-5 w-full rounded-full bg-black py-4 text-white"
+        >
+          {loading ? "Checking..." : "Login"}
+        </button>
+      </div>
+    </div>
+  );
 }
