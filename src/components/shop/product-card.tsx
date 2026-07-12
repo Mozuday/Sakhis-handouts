@@ -118,14 +118,23 @@ items-center
 ">
 
 
-<span className="
-text-lg
-font-semibold
-">
+<div className="flex flex-col">
+  {product.discount_price > 0 ? (
+    <>
+      <span className="text-lg font-semibold text-[#2a1a12]">
+        ₹{product.discount_price}
+      </span>
 
-₹{product.price}
-
-</span>
+      <span className="text-sm text-gray-500 line-through">
+        ₹{product.price}
+      </span>
+    </>
+  ) : (
+    <span className="text-lg font-semibold text-[#2a1a12]">
+      ₹{product.price}
+    </span>
+  )}
+</div>
 
 
 
