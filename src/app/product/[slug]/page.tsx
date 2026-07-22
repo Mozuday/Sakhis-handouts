@@ -76,7 +76,7 @@ export default async function ProductPage({ params }: Props) {
                 Product Description
               </h2>
 
-              <p className="mt-4 text-lg leading-8 text-black/65">
+              <p className="mt-4 whitespace-pre-wrap text-lg leading-8 text-black/65">
                 {product.description}
               </p>
             </div>
