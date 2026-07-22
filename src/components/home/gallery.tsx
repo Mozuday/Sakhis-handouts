@@ -9,13 +9,13 @@ const images = [
   {
     src: "/frame1.png",
     alt: "Personalized photo frame",
-    title: "Personalized Frames",
+    title: "Couple Gifts",
     link: "/shop?category=frames",
   },
   {
     src: "/frame2.jpeg",
     alt: "Couple gift frame",
-    title: "Couple Gifts",
+    title: "Personalized Frames",
     link: "/shop?category=couple",
   },
   {
