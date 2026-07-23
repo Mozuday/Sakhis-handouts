@@ -64,15 +64,6 @@ export default function Footer() {
                   Contact
                 </Link>
               </li>
-
-              <li>
-                <Link
-                  href="/https://udayportfolio-orcin.vercel.app/"
-                  className="transition hover:text-black"
-                >
-                  Developer
-                </Link>
-              </li>
             </ul>
           </div>
 
