@@ -1,183 +1,164 @@
 import { NextResponse } from "next/server";
 
 
-export async function POST(req:Request){
+export async function POST(req: Request) {
 
 
-try{
+  try {
 
 
-const data = await req.json();
+    const data = await req.json();
 
 
 
-const message = `
+    const message = `
+🛒 NEW ORDER RECEIVED
 
-🎁 NEW ORDER RECEIVED
-
+Order ID:
+${data.orderId || "N/A"}
 
 Product:
 ${data.product}
 
-
 Amount:
 ₹${data.amount}
 
+Delivery:
+FREE
 
-CUSTOMER
 
+👤 CUSTOMER DETAILS
 
 Name:
 ${data.customer.name}
 
-
 Email:
 ${data.customer.email}
-
 
 Phone:
 ${data.customer.phone}
 
 
-
-ADDRESS
-
+📍 ADDRESS
 
 ${data.customer.address}
-
-${data.customer.city},
-
-${data.customer.state}
-
+${data.customer.city}, ${data.customer.state}
 ${data.customer.pincode}
 
 
-
-CUSTOM MESSAGE
-
+💬 CUSTOM MESSAGE
 
 ${data.customer.message || "No message"}
 
+
+✅ PAYMENT STATUS:
+SUCCESS
 `;
 
 
 
 
-// SEND TEXT
+    await fetch(
 
-await fetch(
+      `https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage`,
 
-`https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage`,
+      {
 
-{
+        method:"POST",
 
-method:"POST",
+        headers:{
+          "Content-Type":"application/json"
+        },
 
-headers:{
+        body:JSON.stringify({
 
-"Content-Type":"application/json"
+          chat_id:
+          process.env.TELEGRAM_CHAT_ID,
 
-},
+          text:message
 
+        })
 
-body:JSON.stringify({
+      }
 
-chat_id:
-process.env.TELEGRAM_CHAT_ID,
+    );
 
-text:message
 
-})
 
-}
 
-);
 
+    if(data.photos && data.photos.length){
 
 
+      for(const photo of data.photos){
 
 
+        await fetch(
 
-// SEND PHOTOS
+          `https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendPhoto`,
 
-if(data.photos && data.photos.length){
+          {
 
+            method:"POST",
 
-for(const photo of data.photos){
+            headers:{
+              "Content-Type":"application/json"
+            },
 
+            body:JSON.stringify({
 
-await fetch(
+              chat_id:
+              process.env.TELEGRAM_CHAT_ID,
 
-`https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendPhoto`,
+              photo:photo
 
-{
+            })
 
-method:"POST",
+          }
 
-headers:{
+        );
 
-"Content-Type":"application/json"
 
-},
+      }
 
 
-body:JSON.stringify({
+    }
 
-chat_id:
-process.env.TELEGRAM_CHAT_ID,
 
 
-photo:photo
 
-})
 
-}
+    return NextResponse.json({
 
-);
+      success:true
 
+    });
 
 
-}
 
 
 
-}
+  } catch(error) {
 
 
+    console.log(error);
 
 
-return NextResponse.json({
 
-success:true
+    return NextResponse.json(
 
-});
+      {
+        success:false
+      },
 
+      {
+        status:500
+      }
 
+    );
 
 
-
-}
-
-catch(error){
-
-
-console.log(error);
-
-
-return NextResponse.json({
-
-success:false
-
-},
-
-{
-
-status:500
-
-});
-
-
-}
+  }
 
 
 }
