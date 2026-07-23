@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import "./globals.css";
 
 import Navbar from "@/components/layout/navbar";
@@ -11,7 +12,6 @@ export const metadata: Metadata = {
     "https://www.sakhis-handouts.in"
   ),
 
-
   title: {
     default:
       "Sakhi's Handouts | Personalized Handmade Gifts & Custom Frames",
@@ -20,103 +20,70 @@ export const metadata: Metadata = {
       "%s | Sakhi's Handouts",
   },
 
-
   description:
     "Discover personalized handmade gifts, custom frames, handcrafted keepsakes, and unique creations made with love. Order customized gifts online from Sakhi's Handouts.",
 
-
-
   keywords: [
-
     "personalized gifts",
-
     "custom gifts",
-
     "handmade gifts",
-
     "custom frames",
-
     "gift shop",
-
     "personalized frame",
-
     "Sakhi's Handouts",
-
     "customized gifts India",
-
   ],
-
-
 
   authors: [
-
     {
-      name:
-        "Sakhi's Handouts",
+      name: "Sakhi's Handouts",
     },
-
   ],
-
-
 
   creator:
     "Sakhi's Handouts",
 
-
-
   publisher:
     "Sakhi's Handouts",
-
-
 
   category:
     "Shopping",
 
-
-
   robots: {
 
-    index:true,
+    index: true,
 
-    follow:true,
+    follow: true,
 
     googleBot: {
 
-      index:true,
+      index: true,
 
-      follow:true,
+      follow: true,
 
-      "max-image-preview":
-        "large",
+      "max-image-preview": "large",
 
-      "max-video-preview":
-        -1,
+      "max-video-preview": -1,
 
-      "max-snippet":
-        -1,
+      "max-snippet": -1,
 
     },
 
   },
 
 
-
   alternates: {
 
-    canonical:
-      "/",
+    canonical: "/",
 
   },
 
 
-
   openGraph: {
 
-    type:
-      "website",
+    type: "website",
 
-    locale:
-      "en_IN",
+    locale: "en_IN",
 
     url:
       "https://www.sakhis-handouts.in",
@@ -124,38 +91,26 @@ export const metadata: Metadata = {
     siteName:
       "Sakhi's Handouts",
 
-
     title:
       "Sakhi's Handouts | Personalized Handmade Gifts",
-
 
     description:
       "Personalized handmade gifts, custom frames, handcrafted keepsakes and more.",
 
-
-
-    images:[
-
+    images: [
       {
+        url: "/icon.png",
 
-        url:
-          "/icon.png",
+        width: 512,
 
-        width:
-          512,
-
-        height:
-          512,
+        height: 512,
 
         alt:
           "Sakhi's Handouts",
-
       },
-
     ],
 
   },
-
 
 
   twitter: {
@@ -163,21 +118,17 @@ export const metadata: Metadata = {
     card:
       "summary_large_image",
 
-
     title:
       "Sakhi's Handouts",
-
 
     description:
       "Personalized handmade gifts and custom creations.",
 
-
-    images:[
+    images: [
       "/icon.png"
     ],
 
   },
-
 
 
   icons: {
@@ -224,6 +175,15 @@ return (
 
 
 <body className="antialiased">
+
+
+<Script
+
+  src="https://checkout.razorpay.com/v1/checkout.js"
+
+  strategy="afterInteractive"
+
+/>
 
 
 <Navbar />
