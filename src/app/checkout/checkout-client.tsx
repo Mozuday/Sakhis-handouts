@@ -476,42 +476,69 @@ lg:grid-cols-2
 
 
 
-<div className="
-rounded-[32px]
-bg-white
-p-8
-">
+<div className="rounded-[32px] bg-white p-8 shadow-sm">
 
+  <h2 className="text-3xl font-medium mb-8">
+    Order Summary
+  </h2>
 
-<h2 className="text-3xl">
+  {/* Product Image */}
+  {product.image && (
+    <img
+      src={product.image}
+      alt={product.name}
+      className="mb-6 h-64 w-full rounded-2xl object-cover"
+    />
+  )}
 
-{product.name}
+  {/* Product Name */}
+  <h3 className="text-2xl font-medium">
+    {product.name}
+  </h3>
 
-</h2>
+  <div className="mt-8 border-t border-b py-6 space-y-5">
 
+    <div className="flex items-center justify-between">
+      <span className="text-black/60">Product</span>
+      <span className="font-medium text-right">
+        {product.name}
+      </span>
+    </div>
 
+    <div className="flex items-center justify-between">
+      <span className="text-black/60">Quantity</span>
+      <span>1</span>
+    </div>
 
-<p className="mt-5 text-black/60">
+    <div className="flex items-center justify-between">
+      <span className="text-black/60">Delivery</span>
+      <span className="font-medium text-green-600">
+        FREE
+      </span>
+    </div>
 
-{product.description}
+    <div className="flex items-center justify-between">
+      <span className="text-black/60">Price</span>
+      <span>
+        ₹{product.discount_price || product.price}
+      </span>
+    </div>
 
-</p>
+  </div>
 
+  <div className="mt-6 flex items-center justify-between">
 
+    <span className="text-2xl font-semibold">
+      Total
+    </span>
 
-<p className="mt-8 text-3xl font-semibold">
+    <span className="text-3xl font-bold">
+      ₹{product.discount_price || product.price}
+    </span>
 
-₹{product.discount_price || product.price}
-
-</p>
-
+  </div>
 
 </div>
-
-
-
-
-
 
 
 
