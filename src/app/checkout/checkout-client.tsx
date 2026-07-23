@@ -45,19 +45,14 @@ if(!slug) return;
 
 
 const {data,error}=await supabase
-  .from("products")
-  .select("*")
-  .eq("slug",slug)
-  .single();
 
+.from("products")
 
-if(error || !data){
+.select("*")
 
-  console.log("PRODUCT FETCH ERROR:", error);
+.eq("slug",slug)
 
-  return;
-
-}
+.single();
 
 
 
@@ -222,20 +217,7 @@ return;
 }
 
 
-if(
-!form.name ||
-!form.phone ||
-!form.address ||
-!form.city ||
-!form.state ||
-!form.pincode
-){
 
-alert("Please fill all delivery details");
-
-return;
-
-}
 
 
 const amount =
@@ -289,16 +271,7 @@ amount
 const order = await orderResponse.json();
 
 
-if(!order.id){
 
-alert("Unable to start payment");
-
-return;
-
-}
-
-
-console.log("CREATED ORDER:", order);
 
 
 const options:any={
@@ -342,32 +315,55 @@ order.id,
 
 handler:async()=>{
 
+
+
+
+
 await fetch(
+
 "/api/send-telegram",
+
 {
+
 method:"POST",
+
 headers:{
+
 "Content-Type":"application/json"
+
 },
+
+
 body:JSON.stringify({
 
-orderId: order.store_order_id,
 
-product: product.name,
+product:product.name,
+
 
 amount,
 
-customer: form,
 
-photos: uploadedPhotos
+customer:form,
+
+
+photos:uploadedPhotos
+
 
 })
+
+
 }
+
 );
 
 
-window.location.href =
-`/thank-you?order=${order.store_order_id}`;
+
+
+
+window.location.href="/thank-you";
+
+
+
 }
 
 
@@ -380,13 +376,11 @@ window.location.href =
 
 
 
-if (!(window as any).Razorpay) {
-  alert("Payment system is loading. Please try again.");
-  return;
-}
-
 const razorpay =
+
 new (window as any).Razorpay(options);
+
+
 
 razorpay.open();
 
@@ -731,23 +725,20 @@ multiple
 
 accept="image/*"
 
+hidden
+
 onChange={(e)=>{
 
-const files = Array.from(
+
+setPhotos(
+
+Array.from(
 e.target.files || []
-);
 
+)
 
-if(files.length > 5){
+)
 
-alert("Maximum 5 photos allowed");
-
-return;
-
-}
-
-
-setPhotos(files);
 
 }}
 
