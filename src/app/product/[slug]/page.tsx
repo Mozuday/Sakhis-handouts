@@ -71,6 +71,13 @@ export default async function ProductPage({ params }: Props) {
               )}
             </div>
 
+            <Link
+              href={`/checkout?product=${product.slug}`}
+              className="mt-10 inline-flex w-full items-center justify-center rounded-full bg-[#2a1a12] px-8 py-4 text-lg font-medium text-white transition hover:bg-[#3a261a]"
+            >
+              Customize & Order
+            </Link>
+
             <div className="mt-10 border-t border-[#e8dfd2] pt-8">
               <h2 className="text-2xl font-medium text-[#2a1a12]">
                 Product Description
@@ -108,13 +115,6 @@ export default async function ProductPage({ params }: Props) {
                 </div>
               </div>
             </div>
-
-            <Link
-              href={`/checkout?product=${product.slug}`}
-              className="mt-10 inline-flex w-full items-center justify-center rounded-full bg-[#2a1a12] px-8 py-4 text-lg font-medium text-white transition hover:bg-[#3a261a]"
-            >
-              Customize & Order
-            </Link>
 
             <p className="mt-4 text-center text-sm text-black/45">
               Customize your product before placing your order.
