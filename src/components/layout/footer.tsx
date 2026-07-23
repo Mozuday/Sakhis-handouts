@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Mail, Phone } from "lucide-react";
+import { FaInstagram, FaPinterest, FaWhatsapp } from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -61,6 +62,15 @@ export default function Footer() {
                   className="transition hover:text-black"
                 >
                   Contact
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  href="/https://udayportfolio-orcin.vercel.app/"
+                  className="transition hover:text-black"
+                >
+                  Developer
                 </Link>
               </li>
             </ul>
@@ -136,25 +146,35 @@ export default function Footer() {
     <span>Gmail</span>
   </a>
 
-  <a
-    href="https://instagram.com/sakhi.s.handout"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="flex items-center gap-3 transition hover:text-black"
-  >
-    <span className="text-lg">📷</span>
-    <span>Instagram</span>
-  </a>
+ <a
+  href="https://instagram.com/sakhi.s.handout"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="flex items-center gap-3 transition hover:text-black"
+>
+  <FaInstagram size={18} />
+  <span>Instagram</span>
+</a>
 
-  <a
-    href="https://wa.me/7206275809"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="flex items-center gap-3 transition hover:text-black"
-  >
-    <span className="text-lg">💬</span>
-    <span>WhatsApp Us</span>
-  </a>
+<a
+  href="https://pinterest.com/sakhishandout"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="flex items-center gap-3 transition hover:text-black"
+>
+  <FaPinterest size={18} />
+  <span>Pinterest</span>
+</a>
+
+<a
+  href="https://wa.me/917206275809"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="flex items-center gap-3 transition hover:text-black"
+>
+  <FaWhatsapp size={18} />
+  <span>WhatsApp</span>
+</a>
             </div>
           </div>
         </div>
