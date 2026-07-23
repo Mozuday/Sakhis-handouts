@@ -337,6 +337,8 @@ headers:{
 body:JSON.stringify({
 
 
+orderId: order.id,
+
 product:product.name,
 
 
@@ -351,16 +353,11 @@ photos:uploadedPhotos
 
 })
 
-
 }
 
 );
 
-
-
-
-
-window.location.href="/thank-you";
+window.location.href=`/thank-you?order=${order.id}`;
 
 
 
