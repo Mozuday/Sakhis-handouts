@@ -334,22 +334,19 @@ headers:{
 },
 
 
-body:JSON.stringify({
+body: JSON.stringify({
 
+  orderId: order.store_order_id,
 
-orderId: order.id,
+  razorpayOrderId: order.id,
 
-product:product.name,
+  product: product.name,
 
+  amount,
 
-amount,
+  customer: form,
 
-
-customer:form,
-
-
-photos:uploadedPhotos
-
+  photos: uploadedPhotos
 
 })
 
@@ -357,7 +354,7 @@ photos:uploadedPhotos
 
 );
 
-window.location.href=`/thank-you?order=${order.store_order_id}`;
+window.location.href = `/thank-you?order=${order.store_order_id}`;
 
 
 
