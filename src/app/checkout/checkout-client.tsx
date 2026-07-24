@@ -357,7 +357,7 @@ photos:uploadedPhotos
 
 );
 
-window.location.href=`/thank-you?order=${order.id}`;
+window.location.href=`/thank-you?order=${order.store_order_id}`;
 
 
 
