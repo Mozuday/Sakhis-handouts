@@ -17,6 +17,9 @@ export async function POST(req: Request) {
 Order ID:
 ${data.orderId || "N/A"}
 
+Razorpay Order ID:
+${data.razorpayOrderId || "N/A"}
+
 Product:
 ${data.product}
 
